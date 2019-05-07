@@ -40,6 +40,6 @@ names(data_final) <- gsub("^t", "time ", names(data_final))
 names(data_final) <- gsub("^f", "frequency ", names(data_final))
 
 ##5:create a data set with mean
-data_grouped <- group_by(data_final,subject, activity)
+data_grouped <- group_by(data_final, activity, subject)
 data_grouped <- summarise_each(data_grouped, list(mean))
 write.table(data_grouped, "./data/UCI HAR Dataset/MeanData.txt", row.names = FALSE)
